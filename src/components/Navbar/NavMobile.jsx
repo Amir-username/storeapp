@@ -4,9 +4,8 @@ import TAG from "../../assets/TAG.svg";
 import CATEGORY from "../../assets/CATEGORY.svg";
 import SHARE from "../../assets/SHARE.svg";
 
-function NavMobile({ isOpen, setIsOpen }) {
+function NavMobile({ setIsOpen }) {
   return (
-    isOpen && (
       <>
         <div className="text-left text-5xl p-5 font-mono text-gray-800">
           <span className="cursor-pointer" onClick={() => setIsOpen((o) => !o)}>
@@ -22,7 +21,6 @@ function NavMobile({ isOpen, setIsOpen }) {
           </div>
         </div>
       </>
-    )
   );
 }
 
