@@ -7,12 +7,12 @@ import SHARE from "../../assets/SHARE.svg";
 function NavMobile({ setIsOpen }) {
   return (
       <>
-        <div className="text-left text-5xl p-5 font-mono text-gray-800">
+        <div className="text-left text-5xl p-5 font-mono text-gray-800 transition-all delay-150 duration-300">
           <span className="cursor-pointer" onClick={() => setIsOpen((o) => !o)}>
             &#88;
           </span>
         </div>
-        <div className="flex h-72 justify-center items-center mt-20">
+        <div className="flex h-72 justify-center items-center mt-20 transition-all delay-150 duration-300">
           <div className="flex flex-col gap-5">
             <NavItem name={"Home"} icon={HOME} />
             <NavItem name={"Products"} icon={TAG} />
