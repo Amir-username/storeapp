@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="pb-2 fixed bg-white shadow-lg shadow-white">
+      <div className="pb-2 fixed z-50 bg-white shadow-lg shadow-white">
         {isOpen ? (
           <NavMobile setIsOpen={setIsOpen} />
         ) : (
