@@ -7,11 +7,13 @@ function Navbar() {
 
   return (
     <>
-      {isOpen ? (
-        <NavMobile setIsOpen={setIsOpen} />
-      ) : (
-        <NavFull setIsOpen={setIsOpen} />
-      )}
+      <div className="pb-2 fixed bg-white shadow-lg shadow-white">
+        {isOpen ? (
+          <NavMobile setIsOpen={setIsOpen} />
+        ) : (
+          <NavFull setIsOpen={setIsOpen} />
+        )}
+      </div>
     </>
   );
 }

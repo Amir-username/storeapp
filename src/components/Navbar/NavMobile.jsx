@@ -6,13 +6,17 @@ import SHARE from "../../assets/SHARE.svg";
 
 function NavMobile({ setIsOpen }) {
   return (
-      <>
-        <div className="text-left text-5xl p-5 font-mono text-gray-800 transition-all delay-150 duration-300">
-          <span className="cursor-pointer" onClick={() => setIsOpen((o) => !o)}>
+    <>
+      <div className="bg-white fixed h-screen w-screen">
+        <div className="text-left text-4xl p-5 font-mono text-gray-800">
+          <span
+            className="cursor-pointer active:bg-gray-100 py-3 px-6 rounded-full"
+            onClick={() => setIsOpen((o) => !o)}
+          >
             &#88;
           </span>
         </div>
-        <div className="flex h-72 justify-center items-center mt-20 transition-all delay-150 duration-300">
+        <div className="flex justify-center items-center mt-32 transition-all delay-150 duration-300">
           <div className="flex flex-col gap-5">
             <NavItem name={"Home"} icon={HOME} />
             <NavItem name={"Products"} icon={TAG} />
@@ -20,7 +24,8 @@ function NavMobile({ setIsOpen }) {
             <NavItem name={"Github"} icon={SHARE} />
           </div>
         </div>
-      </>
+      </div>
+    </>
   );
 }
 
