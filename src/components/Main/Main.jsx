@@ -1,6 +1,7 @@
 import Categories from "./Categories/Categories";
 import Header from "./Header";
 import Products from "./Products/Products";
+import SignUp from "./SignUp/SignUp";
 
 function Main() {
   return (
@@ -8,6 +9,7 @@ function Main() {
       <Header />
       <Categories />
       <Products />
+      <SignUp />
     </div>
   );
 }
