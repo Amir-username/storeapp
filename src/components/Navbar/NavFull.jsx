@@ -12,11 +12,9 @@ function NavFull({ setIsOpen }) {
           <NavBrand />
         </div>
         <div className="hidden md:visible md:flex py-2 gap-10 w-fit mt-0.5">
-          <NavItemFull name={"home"} />
-          <NavItemFull name={"home"} />
-          <NavItemFull name={"home"} />
-          <NavItemFull name={"home"} />
-          <NavItemFull name={"home"} />
+          <NavItemFull name={"products"} />
+          <NavItemFull name={"categories"} />
+          <NavItemFull name={"signup"} />
         </div>
         <SearchForm />
         <img
