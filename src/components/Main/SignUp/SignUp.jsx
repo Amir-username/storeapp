@@ -15,8 +15,8 @@ function SignUp() {
           signup
         </div>
         <div
-          className="ring-1 ring-orange-500 py-3 px-4 rounded-lg text-orange-500
-       cursor-pointer hover:bg-orange-500 hover:text-white font-bold uppercase"
+          className="py-3 px-4 rounded-lg text-white bg-orange-500
+          cursor-pointer hover:bg-orange-400 hover:text-white font-bold uppercase"
         >
           login
         </div>
