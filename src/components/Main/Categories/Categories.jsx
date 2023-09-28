@@ -1,20 +1,29 @@
 import CategoryItem from "./CategoryItem";
 
+import GridHeader from "../GridHeader";
+
 import ELECTRONICCAT from "../../../assets/ELECTRONICCAT.png";
 import JEWELERY from "../../../assets/JEWELERYCAT.png";
 import MENCAT from "../../../assets/MENCAT.png";
 import WOMENCAT from "../../../assets/WOMENCAT.png";
-import GridHeader from "../GridHeader";
 
-function Categories() {
+const images = [ELECTRONICCAT, JEWELERY, MENCAT, WOMENCAT];
+
+function Categories({ categories }) {
   return (
     <>
       <GridHeader title={"categories"} />
       <div className="flex flex-wrap md:gap-10 gap-5 justify-center items-center rounded-lg p-5 md:mx-80 md:pt-8 pt-4">
-        <CategoryItem image={ELECTRONICCAT} name={"electronic"} />
-        <CategoryItem image={JEWELERY} name={"jewelery"} />
-        <CategoryItem image={MENCAT} name={"men's clothing"} />
-        <CategoryItem image={WOMENCAT} name={"women's clothing"} />
+        {categories.map((category, index) => {
+          console.log(category);
+          return (
+            <CategoryItem
+              name={category}
+              image={images[index]}
+              key={category}
+            />
+          );
+        })}
       </div>
     </>
   );

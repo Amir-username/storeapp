@@ -1,4 +1,4 @@
-function CategoryItem({ image, name }) {
+function CategoryItem({ name, image }) {
   return (
     <div
       className="flex justify-center items-center ring-1 ring-gray-300 duration-500 hover:shadow-2xl cursor-pointer

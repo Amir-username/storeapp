@@ -1,23 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import NavItem from "./components/Navbar/NavItem";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await fetch("https://fakestoreapi.com/products");
+  const [categories, setCategories] = useState([]);
+
+  useEffect(()=>{
+    const fetchCategories = async () => {
+      const res = await fetch('https://fakestoreapi.com/products/categories');
       const data = await res.json();
-      console.log(data);
-    };
-    fetchProducts();
-  }, []);
+      setCategories(data)
+    }
+
+    fetchCategories();
+  }, [])
 
   return (
     <div>
       <Navbar />
-      <Main />
+      <Main categories={categories}/>
       <Footer />
     </div>
   );

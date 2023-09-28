@@ -3,11 +3,11 @@ import Header from "./Header";
 import Products from "./Products/Products";
 import SignUp from "./SignUp/SignUp";
 
-function Main() {
+function Main({categories}) {
   return (
     <div className="pt-44">
       <Header />
-      <Categories />
+      <Categories categories={categories}/>
       <Products />
       <SignUp />
     </div>

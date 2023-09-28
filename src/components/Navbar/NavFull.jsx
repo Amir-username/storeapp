@@ -3,6 +3,7 @@ import NavItem from "./NavItem";
 import NAVMENUN from "../../assets/NAVMENU.svg";
 import NavItemFull from "./NavItemFull";
 import SearchForm from "./SearchForm";
+import NavItemDropDown from "./NavItemDropDown";
 
 function NavFull({ setIsOpen }) {
   return (
@@ -13,7 +14,8 @@ function NavFull({ setIsOpen }) {
         </div>
         <div className="hidden md:visible md:flex py-2 gap-10 w-fit mt-0.5">
           <NavItemFull name={"products"} />
-          <NavItemFull name={"categories"} />
+          <NavItemDropDown />
+          {/* <NavItemFull name={"categories"} /> */}
           <NavItemFull name={"signup"} />
         </div>
         <SearchForm />
