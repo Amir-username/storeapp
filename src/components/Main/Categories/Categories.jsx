@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import CategoryItem from "./CategoryItem";
 
 import GridHeader from "../GridHeader";
@@ -6,10 +8,13 @@ import ELECTRONICCAT from "../../../assets/ELECTRONICCAT.png";
 import JEWELERY from "../../../assets/JEWELERYCAT.png";
 import MENCAT from "../../../assets/MENCAT.png";
 import WOMENCAT from "../../../assets/WOMENCAT.png";
+import { CategoryProvider } from '../../../App';
 
 const images = [ELECTRONICCAT, JEWELERY, MENCAT, WOMENCAT];
 
-function Categories({ categories }) {
+function Categories() {
+  const {categories} = useContext(CategoryProvider)
+
   return (
     <>
       <GridHeader title={"categories"} />

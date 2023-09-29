@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import DropDownItem from "./DropDownItem";
+import { CategoryProvider } from "../../App";
 
 function NavItemDropDown() {
   const [DropOpen, setDropOpen] = useState(false);
+
+  const { categories } = useContext(CategoryProvider);
 
   return (
     <div className="relative inline-block text-left">
@@ -18,7 +21,7 @@ function NavItemDropDown() {
               DropOpen && "rotate-180"
             } h-5 w-5 text-gray-400 mt-1.5 duration-300`}
             viewBox="0 0 20 20"
-            fill="currentColor"
+            fill="gray"
             aria-hidden="true"
           >
             <path
@@ -33,15 +36,15 @@ function NavItemDropDown() {
       <div
         className={`${
           DropOpen === false && "hidden"
-        } absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+        } absolute right-0 z-10 mt-4 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
         tabIndex={-1}
       >
-        <div className="py-1" role="none">
-          <DropDownItem />
-        </div>
+        {categories.map((category, index) => {
+          return <DropDownItem name={category} key={index} />;
+        })}
       </div>
     </div>
   );
