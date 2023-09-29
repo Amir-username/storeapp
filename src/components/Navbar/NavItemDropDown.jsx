@@ -1,22 +1,22 @@
 import { useState } from "react";
+import DropDownItem from "./DropDownItem";
 
 function NavItemDropDown() {
   const [DropOpen, setDropOpen] = useState(false);
-
 
   return (
     <div className="relative inline-block text-left">
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          id="menu-button"
-          aria-expanded="true"
-          aria-haspopup="true"
+          className="inline-flex w-full justify-center gap-x-1.5 rounded-md text-gray-700 hover:text-gray-900"
+          onClick={() => setDropOpen((o) => !o)}
         >
-          Options
+          categories
           <svg
-            className="-mr-1 h-5 w-5 text-gray-400"
+            className={`${
+              DropOpen && "rotate-180"
+            } h-5 w-5 text-gray-400 mt-1.5 duration-300`}
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
@@ -40,45 +40,7 @@ function NavItemDropDown() {
         tabIndex={-1}
       >
         <div className="py-1" role="none">
-          {/* Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" */}
-          <a
-            href="#"
-            className="text-gray-700 block px-4 py-2 text-sm"
-            role="menuitem"
-            tabIndex={-1}
-            id="menu-item-0"
-          >
-            Account settings
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 block px-4 py-2 text-sm"
-            role="menuitem"
-            tabIndex={-1}
-            id="menu-item-1"
-          >
-            Support
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 block px-4 py-2 text-sm"
-            role="menuitem"
-            tabIndex={-1}
-            id="menu-item-2"
-          >
-            License
-          </a>
-          <form method="POST" action="#" role="none">
-            <button
-              type="submit"
-              className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-              role="menuitem"
-              tabIndex={-1}
-              id="menu-item-3"
-            >
-              Sign out
-            </button>
-          </form>
+          <DropDownItem />
         </div>
       </div>
     </div>
