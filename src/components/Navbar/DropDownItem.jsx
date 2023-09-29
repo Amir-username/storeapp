@@ -1,4 +1,4 @@
-function DropDownItem({name}) {
+function DropDownItem({ name }) {
   return (
     <a
       href="#"
