@@ -4,7 +4,7 @@ function SignUp() {
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-36 mb-10">
       <div className="flex gap-2">
-        <p className="text-5xl uppercase">Join us</p>
+        <p className="text-5xl uppercase font-snigletR">Join us</p>
         <img src={PERSON} alt="person" className="w-9 h-9 mt-2" />
       </div>
       <div className="flex gap-2 p-5">

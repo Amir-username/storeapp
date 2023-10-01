@@ -3,7 +3,7 @@ import DOUBLEUNDERLINE from "../../assets/DOUBLEUNDERLINE.svg";
 function GridHeader({ title }) {
   return (
     <div className="flex flex-col gap-0 mt-40 mb-10 justify-center items-center">
-    <p className="text-gray-600 text-center md:text-4xl text-2xl font-bold">
+    <p className="text-gray-600 text-center md:text-4xl text-2xl font-patrick">
       {title}
     </p>
     <img

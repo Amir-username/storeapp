@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        patrick: ['patrick-hand', 'sans-serif'],
+        snigletR: ['sniglet-regular', 'sans-serif'],
+        snigletB: ['sniglet-bold', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
   darkMode: 'class'
