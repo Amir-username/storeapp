@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
 import DropDownItem from "./DropDownItem";
-import { CategoryProvider } from "../../App";
+import {StoreProvider } from "../../App";
 
 function NavItemDropDown() {
   const [DropOpen, setDropOpen] = useState(false);
 
-  const { categories } = useContext(CategoryProvider);
+  const { categories } = useContext(StoreProvider);
 
   return (
     <div className="relative inline-block text-left">

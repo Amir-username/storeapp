@@ -5,38 +5,66 @@ import NavItem from "./components/Navbar/NavItem";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 
-export const CategoryProvider = createContext();
+export const StoreProvider = createContext();
 
 function App() {
   const [categories, setCategories] = useState([]);
   const [categoryLoading, setCategoryLoading] = useState(false);
+  const [categoryError, setCategoryError] = useState("");
 
-  console.log(categoryLoading);
+  const [products, setProducts] = useState([]);
+  const [productLoading, setProductLoading] = useState(false);
+  const [productError, setProductError] = useState("");
 
   useEffect(() => {
     const fetchCategories = async () => {
-      setCategoryLoading(true);
-      const res = await fetch("https://fakestoreapi.com/products/categories");
-      const data = await res.json();
-      setCategories(data);
-      setCategoryLoading(false);
+      try {
+        setCategoryLoading(true);
+        const res = await fetch("https://fakestoreapi.com/products/categories");
+        const data = await res.json();
+        setCategories(data);
+      } catch (error) {
+        setCategoryError(error.message);
+        console.log(error.message);
+      } finally {
+        setCategoryLoading(false);
+      }
     };
 
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setProductLoading(true);
+        const res = await fetch("https://fakestoreapi.com/products?limit=9");
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        setProductError(error.message);
+        console.log(error.message);
+      } finally {
+        setProductLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <div>
-      <CategoryProvider.Provider
+      <StoreProvider.Provider
         value={{
           categories,
-          setCategories,
           categoryLoading,
+          products,
+          productLoading,
         }}
       >
         <Navbar />
         <Main />
-      </CategoryProvider.Provider>
+      </StoreProvider.Provider>
       <Footer />
     </div>
   );

@@ -8,13 +8,13 @@ import ELECTRONICCAT from "../../../assets/ELECTRONICCAT.png";
 import JEWELERY from "../../../assets/JEWELERYCAT.png";
 import MENCAT from "../../../assets/MENCAT.png";
 import WOMENCAT from "../../../assets/WOMENCAT.png";
-import { CategoryProvider } from '../../../App';
+import { StoreProvider } from '../../../App';
 import CategoryLoading from './CategoryLoading';
 
 const images = [ELECTRONICCAT, JEWELERY, MENCAT, WOMENCAT];
 
 function Categories() {
-  const {categories, categoryLoading} = useContext(CategoryProvider)
+  const {categories, categoryLoading} = useContext(StoreProvider)
 
   return (
     <>
