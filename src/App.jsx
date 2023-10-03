@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import NavItem from "./components/Navbar/NavItem";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductsPage from "./components/Products/ProductsPage";
 
 export const StoreProvider = createContext();
 
@@ -63,7 +65,10 @@ function App() {
         }}
       >
         <Navbar />
-        <Main />
+          <Routes>
+            <Route path="" element={<Main />}/>
+            <Route path="products" element={<ProductsPage />}/>
+          </Routes>
       </StoreProvider.Provider>
       <Footer />
     </div>

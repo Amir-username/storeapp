@@ -4,18 +4,22 @@ import NAVMENUN from "../../assets/NAVMENU.svg";
 import NavItemFull from "./NavItemFull";
 import SearchForm from "./SearchForm";
 import NavItemDropDown from "./NavItemDropDown";
+import { Link } from "react-router-dom";
 
 function NavFull({ setIsOpen }) {
   return (
     <>
       <div className="flex p-3 gap-64 h-16 w-screen justify-center md:justify-start">
         <div className="flex w-full md:w-32 items-center justify-center mt-1">
-          <NavBrand />
+          <Link to={""}>
+            <NavBrand />
+          </Link>
         </div>
         <div className="hidden md:visible md:flex py-2 gap-10 w-fit mt-0.5">
-          <NavItemFull name={"products"} />
+          <Link to={"products"}>
+            <NavItemFull name={"products"} />
+          </Link>
           <NavItemDropDown />
-          {/* <NavItemFull name={"categories"} /> */}
           <NavItemFull name={"signup"} />
         </div>
         <SearchForm />
