@@ -1,5 +1,4 @@
 function ProductItem({ product }) {
-  console.log(product);
   return (
     <div
       className="flex flex-col justify-center items-center ring-1

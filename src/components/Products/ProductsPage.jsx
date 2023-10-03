@@ -1,8 +1,11 @@
+import { useParams } from "react-router-dom"
+
 function ProductsPage() {
+    const {category} = useParams()
   return (
     <>
       <div className="flex h-screen justify-center items-center text-6xl">
-        products
+        {category ? category : <p>category</p>}
       </div>
     </>
   );

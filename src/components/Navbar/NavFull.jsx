@@ -16,7 +16,7 @@ function NavFull({ setIsOpen }) {
           </Link>
         </div>
         <div className="hidden md:visible md:flex py-2 gap-10 w-fit mt-0.5">
-          <Link to={"products"}>
+          <Link to={"products/all"}>
             <NavItemFull name={"products"} />
           </Link>
           <NavItemDropDown />

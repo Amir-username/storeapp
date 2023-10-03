@@ -20,7 +20,7 @@ function NavMobile({ setIsOpen }) {
         <div className="flex justify-center items-center mt-32 transition-all delay-150 duration-300">
           <div className="flex flex-col gap-5">
             <NavItem name={"Home"} icon={HOME} />
-            <Link to={"products"} onClick={() => setIsOpen(false)}>
+            <Link to={"products/all"} onClick={() => setIsOpen(false)}>
               <NavItem name={"Products"} icon={TAG} />
             </Link>
             <NavItem name={"Categories"} icon={CATEGORY} />

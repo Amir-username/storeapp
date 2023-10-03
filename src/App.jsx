@@ -67,7 +67,7 @@ function App() {
         <Navbar />
           <Routes>
             <Route path="" element={<Main />}/>
-            <Route path="products" element={<ProductsPage />}/>
+            <Route path="products/:category" element={<ProductsPage />}/>
           </Routes>
       </StoreProvider.Provider>
       <Footer />
