@@ -4,7 +4,7 @@ import NAVMENUN from "../../assets/NAVMENU.svg";
 import NavItemFull from "./NavItemFull";
 import SearchForm from "./SearchForm";
 import NavItemDropDown from "./NavItemDropDown";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function NavFull({ setIsOpen }) {
   return (

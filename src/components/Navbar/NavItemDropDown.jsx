@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
 import DropDownItem from "./DropDownItem";
-import {StoreProvider } from "../../App";
+import { StoreProvider } from "../../App";
+import { Link, NavLink } from "react-router-dom";
 
 function NavItemDropDown() {
   const [DropOpen, setDropOpen] = useState(false);
+  const [catPath, setCatPath] = useState("all");
 
   const { categories } = useContext(StoreProvider);
 
@@ -43,7 +45,7 @@ function NavItemDropDown() {
         tabIndex={-1}
       >
         {categories.map((category, index) => {
-          return <DropDownItem name={category} key={index} />;
+          return <DropDownItem name={category} key={index} setDropDown={setDropOpen}/>;
         })}
       </div>
     </div>

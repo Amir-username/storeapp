@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Categories from "./Categories/Categories";
 import Header from "./Header";
 import Products from "./Products/Products";

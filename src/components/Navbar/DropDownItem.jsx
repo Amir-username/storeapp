@@ -1,14 +1,12 @@
-function DropDownItem({ name }) {
+import { Link, Outlet } from "react-router-dom";
+
+function DropDownItem({ name, setDropDown }) {
   return (
-    <a
-      href="#"
-      className="text-gray-700 block px-4 py-4 text-sm hover:bg-gray-100"
-      role="menuitem"
-      tabIndex={-1}
-      id="menu-item-0"
-    >
-      {name}
-    </a>
+    <Link to={`products/${name}`} onClick={() => setDropDown(false)}>
+      <div className="text-gray-700 block px-4 py-4 text-sm hover:bg-gray-100 cursor-pointer">
+        {name}
+      </div>
+    </Link>
   );
 }
 

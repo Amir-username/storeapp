@@ -6,6 +6,7 @@ import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsPage from "./components/Products/ProductsPage";
+import { useStore } from "./customHooks/useStore";
 
 export const StoreProvider = createContext();
 
@@ -18,41 +19,21 @@ function App() {
   const [productLoading, setProductLoading] = useState(false);
   const [productError, setProductError] = useState("");
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        setCategoryLoading(true);
-        const res = await fetch("https://fakestoreapi.com/products/categories");
-        const data = await res.json();
-        setCategories(data);
-      } catch (error) {
-        setCategoryError(error.message);
-        console.log(error.message);
-      } finally {
-        setCategoryLoading(false);
-      }
-    };
+  useStore(
+    "https://fakestoreapi.com/products/categories",
+    setCategories,
+    setCategoryError,
+    setCategoryLoading,
+    []
+  );
 
-    fetchCategories();
-  }, []);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setProductLoading(true);
-        const res = await fetch("https://fakestoreapi.com/products?limit=9");
-        const data = await res.json();
-        setProducts(data);
-      } catch (error) {
-        setProductError(error.message);
-        console.log(error.message);
-      } finally {
-        setProductLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  useStore(
+    "https://fakestoreapi.com/products?limit=9",
+    setProducts,
+    setProductError,
+    setProductLoading,
+    []
+  )
 
   return (
     <div>
@@ -65,10 +46,10 @@ function App() {
         }}
       >
         <Navbar />
-          <Routes>
-            <Route path="" element={<Main />}/>
-            <Route path="products/:category" element={<ProductsPage />}/>
-          </Routes>
+        <Routes>
+          <Route path="/" index element={<Main />} />
+          <Route path="products/:category" index element={<ProductsPage />} />
+        </Routes>
       </StoreProvider.Provider>
       <Footer />
     </div>
