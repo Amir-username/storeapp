@@ -1,4 +1,10 @@
-import { useEffect, useState, useContext, createContext } from "react";
+import {
+  useEffect,
+  useState,
+  useContext,
+  createContext,
+  useReducer,
+} from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import NavItem from "./components/Navbar/NavItem";
@@ -7,8 +13,16 @@ import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsPage from "./components/Products/ProductsPage";
 import { useStore } from "./customHooks/useStore";
+import { cartReducer } from "./reducer/cartReducer";
+import ProductDetails from "./components/Products/ProductDetails";
 
 export const StoreProvider = createContext();
+export const CartProvider = createContext();
+
+const initState = {
+  count: 0,
+  products: [],
+};
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -18,6 +32,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [productLoading, setProductLoading] = useState(false);
   const [productError, setProductError] = useState("");
+
+  const [state, dispatch] = useReducer(cartReducer, initState);
 
   useStore(
     "https://fakestoreapi.com/products/categories",
@@ -33,7 +49,7 @@ function App() {
     setProductError,
     setProductLoading,
     []
-  )
+  );
 
   return (
     <div>
@@ -45,10 +61,18 @@ function App() {
           productLoading,
         }}
       >
-        <Navbar />
+        <CartProvider.Provider
+          value={{
+            count: state.count,
+            dispatch,
+          }}
+        >
+          <Navbar />
+        </CartProvider.Provider>
         <Routes>
           <Route path="/" index element={<Main />} />
           <Route path="products/:category" index element={<ProductsPage />} />
+          <Route path="product-details/:id" index element={<ProductDetails />} />
         </Routes>
       </StoreProvider.Provider>
       <Footer />
