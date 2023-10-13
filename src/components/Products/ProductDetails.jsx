@@ -12,7 +12,7 @@ function ProductDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const cart = useContext(CartProvider);
+  const {dispatch} = useContext(CartProvider);
 
   useStore(
     `https://fakestoreapi.com/products/${id}`,
@@ -42,6 +42,7 @@ function ProductDetails() {
             </div>
 
             <div
+              onClick={() => dispatch({ type: "add", payload: product })}
               className="flex gap-5 items-center justify-center
               p-5 rounded-lg bg-green-600 text-white md:text-xl text-lg
                 mt-5 font-snigletR md:w-80 w-72 text-center hover:bg-green-500 cursor-pointer"

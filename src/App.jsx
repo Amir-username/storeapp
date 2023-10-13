@@ -16,8 +16,8 @@ import { useStore } from "./customHooks/useStore";
 import { cartReducer } from "./reducer/cartReducer";
 import ProductDetails from "./components/Products/ProductDetails";
 
-export const StoreProvider = createContext();
-export const CartProvider = createContext();
+export const StoreProvider = createContext({});
+export const CartProvider = createContext({});
 
 const initState = {
   count: 0,
@@ -68,12 +68,16 @@ function App() {
           }}
         >
           <Navbar />
+          <Routes>
+            <Route path="/" index element={<Main />} />
+            <Route path="products/:category" index element={<ProductsPage />} />
+            <Route
+              path="product-details/:id"
+              index
+              element={<ProductDetails />}
+            />
+          </Routes>
         </CartProvider.Provider>
-        <Routes>
-          <Route path="/" index element={<Main />} />
-          <Route path="products/:category" index element={<ProductsPage />} />
-          <Route path="product-details/:id" index element={<ProductDetails />} />
-        </Routes>
       </StoreProvider.Provider>
       <Footer />
     </div>
