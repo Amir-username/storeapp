@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function ProductItem({ product }) {
   return (
-    <Link to={`product-details/${product.id}`}>
+    <Link to={`../product-details/${product.id}`}>
       <div
         className="flex flex-col justify-center items-center ring-1
        ring-gray-300 duration-500 hover:shadow-2xl cursor-pointer
