@@ -11,7 +11,7 @@ function Navbar() {
         {isOpen ? (
           <NavMobile setIsOpen={setIsOpen} />
         ) : (
-          <NavFull setIsOpen={setIsOpen} />
+          <NavFull setIsOpen={setIsOpen}/>
         )}
       </div>
     </>

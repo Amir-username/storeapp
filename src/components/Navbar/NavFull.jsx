@@ -10,7 +10,7 @@ function NavFull({ setIsOpen }) {
   return (
     <>
       <div className="flex p-3 md:gap-96 h-16 w-screen justify-center md:justify-start">
-        <div className="flex w-full md:w-32 items-center justify-center mt-1">
+        <div className="flex gap-2 w-full md:w-32 items-center justify-center mt-1">
           <Link to={""}>
             <NavBrand />
           </Link>

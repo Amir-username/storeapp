@@ -15,6 +15,7 @@ import ProductsPage from "./components/Products/ProductsPage";
 import { useStore } from "./customHooks/useStore";
 import { cartReducer } from "./reducer/cartReducer";
 import ProductDetails from "./components/Products/ProductDetails";
+import BottomNav from "./components/BottomNav/BottomNav";
 
 export const StoreProvider = createContext({});
 export const CartProvider = createContext({});
@@ -52,19 +53,19 @@ function App() {
   );
 
   return (
-    <div>
-      <StoreProvider.Provider
+    <div className="flex flex-col">
+      <CartProvider.Provider
         value={{
-          categories,
-          categoryLoading,
-          products,
-          productLoading,
+          count: state.count,
+          dispatch,
         }}
       >
-        <CartProvider.Provider
+        <StoreProvider.Provider
           value={{
-            count: state.count,
-            dispatch,
+            categories,
+            categoryLoading,
+            products,
+            productLoading,
           }}
         >
           <Navbar />
@@ -77,9 +78,10 @@ function App() {
               element={<ProductDetails />}
             />
           </Routes>
-        </CartProvider.Provider>
-      </StoreProvider.Provider>
-      <Footer />
+        </StoreProvider.Provider>
+        <Footer />
+        <BottomNav />
+      </CartProvider.Provider>
     </div>
   );
 }
