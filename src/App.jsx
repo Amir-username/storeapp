@@ -16,6 +16,7 @@ import { useStore } from "./customHooks/useStore";
 import { cartReducer } from "./reducer/cartReducer";
 import ProductDetails from "./components/Products/ProductDetails";
 import BottomNav from "./components/BottomNav/BottomNav";
+import CartPage from "./components/Cart/CartPage";
 
 export const StoreProvider = createContext({});
 export const CartProvider = createContext({});
@@ -77,6 +78,7 @@ function App() {
               index
               element={<ProductDetails />}
             />
+            <Route path="cart/" element={<CartPage />} />
           </Routes>
         </StoreProvider.Provider>
         <Footer />
