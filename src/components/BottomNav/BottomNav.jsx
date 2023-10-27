@@ -7,8 +7,6 @@ import CHECK from "../../assets/CHECK.svg";
 
 function BottomNav() {
   const { pathname } = useLocation();
-  console.log(pathname);
-
   const { count } = useContext(CartProvider);
 
   return (

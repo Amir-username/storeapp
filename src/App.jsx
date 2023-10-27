@@ -58,6 +58,7 @@ function App() {
       <CartProvider.Provider
         value={{
           count: state.count,
+          cartProducts: state.products,
           dispatch,
         }}
       >

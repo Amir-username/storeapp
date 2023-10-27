@@ -4,7 +4,7 @@ export function cartReducer(state, action) {
       return {
         ...state,
         count: state.count + 1,
-        product: [...state.products, action.payload],
+        products: [...state.products, action.payload],
       };
   }
 }
