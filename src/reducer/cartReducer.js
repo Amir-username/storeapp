@@ -6,5 +6,12 @@ export function cartReducer(state, action) {
         count: state.count + 1,
         products: [...state.products, action.payload],
       };
+
+    case 'del':
+      return {
+        ...state,
+        count: state.count - 1,
+        products: [...state.products, action.payload],
+      };
   }
 }
