@@ -7,11 +7,11 @@ export function cartReducer(state, action) {
         products: [...state.products, action.payload],
       };
 
-    case 'del':
+    case "delete":
       return {
         ...state,
         count: state.count - 1,
-        products: [...state.products, action.payload],
+        products: [state.products.filter((item) => item.id !== action.payload)],
       };
   }
 }

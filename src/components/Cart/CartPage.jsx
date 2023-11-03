@@ -9,10 +9,10 @@ function CartPage() {
 
   return (
     <div className="flex flex-col gap-20">
-      <CartHeader count={cartProducts.length} />
+      {count > 0 && <CartHeader count={count} />}
       <div className="flex flex-col justify-center items-center">
         <div className="flex flex-col p-8 gap-8 justify-center items-center">
-          {cartProducts.length > 0 ? (
+          {count > 0 && cartProducts ? (
             cartProducts.map((product) => {
               return <CartItem product={product} key={product.id} />;
             })
