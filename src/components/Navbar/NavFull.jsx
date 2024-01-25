@@ -10,7 +10,13 @@ function NavFull({ setIsOpen }) {
   return (
     <>
       <div className="flex p-3 md:gap-96 h-16 w-screen justify-center md:justify-start">
-        <div className="flex gap-2 w-full md:w-32 items-center justify-center mt-1">
+        <img
+          onClick={() => setIsOpen(true)}
+          src={NAVMENUN}
+          alt="menu"
+          className="w-12 h-12 cursor-pointer active:bg-gray-100 rounded-full md:hidden"
+        />
+        <div className="flex gap-2 w-full md:w-32 items-center justify-start ml-5 mt-1">
           <Link to={""}>
             <NavBrand />
           </Link>
@@ -23,12 +29,6 @@ function NavFull({ setIsOpen }) {
           <NavItemFull name={"signup"} />
         </div>
         <Cart />
-        <img
-          onClick={() => setIsOpen(true)}
-          src={NAVMENUN}
-          alt="menu"
-          className="w-12 h-12 cursor-pointer active:bg-gray-100 rounded-full md:hidden"
-        />
       </div>
     </>
   );

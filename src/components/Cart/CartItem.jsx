@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartProvider } from "../../App";
 
 function CartItem({ product }) {
+  const [isFull, setIsFull] = useState(false);
+
   const { dispatch } = useContext(CartProvider);
 
   return (
@@ -16,8 +18,18 @@ function CartItem({ product }) {
         src={product.image}
         className="absolute w-20 h-20 rounded-lg bottom-2 left-3"
       />
-      <div className="absolute md:left-32 left-28 md:bottom-10 bottom-12 md:text-lg text-[12px]">
-        {product.title}
+      <div
+        className={`absolute md:${setIsFull(
+          true
+        )} md:left-32 left-28 md:bottom-10 bottom-12 md:text-lg text-[12px]`}
+      >
+        {isFull
+          ? product.title.length > 50
+            ? product.title.slice(0, 50) + "..."
+            : product.title
+          : product.title.length > 20
+          ? product.title.slice(0, 20) + "..."
+          : product.title}
       </div>
       <div className="absolute md:text-base text-[12px] text-gray-700 md:left-32 left-28 md:bottom-5 bottom-7">
         {product.category}
