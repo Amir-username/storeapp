@@ -18,18 +18,27 @@ function ProductsPage() {
     setProducts,
     setProductError,
     setProductLoading,
-    [category, ],
+    [category]
   );
 
   return (
     <>
-      <div
-        className="flex flex-wrap md:gap-10 gap-5 justify-center
-       items-center rounded-lg p-5 md:pt-32 pt-4"
-      >
-        {productLoading ? <ProductsLoading count={9} /> : products.map((product) => {
-          return <ProductItem product={product} key={product.id} />;
-        })}
+      <div className="flex flex-col mt-32 gap-8">
+        <div className="text-center text-4xl font-semibold font-snigletR text-gray-500">
+          {category}
+        </div>
+        <div
+          className="flex flex-wrap md:gap-10 gap-5 justify-center
+        items-center rounded-lg p-5 md:pt-32 pt-4"
+        >
+          {productLoading ? (
+            <ProductsLoading count={9} />
+          ) : (
+            products.map((product) => {
+              return <ProductItem product={product} key={product.id} />;
+            })
+          )}
+        </div>
       </div>
     </>
   );
